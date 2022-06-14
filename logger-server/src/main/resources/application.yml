@@ -1,0 +1,10 @@
+server:
+  port: 9090
+logging:
+  file:
+    path: D://logs/common/audit.log
+  level:
+    root: INFO
+  logback:
+    rollingpolicy:
+      clean-history-on-start: true  

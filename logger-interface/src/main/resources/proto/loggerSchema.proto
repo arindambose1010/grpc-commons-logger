@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option java_package = "comm.grpc.logger.stub";
+option java_multiple_files = true;
+
+service Logger{
+    rpc log(LogData)  returns (LogResponse);
+    rpc logMsg(LogMessage)  returns (LogResponse);
+}
+
+message LogData{
+    string appName = 1 ;
+    string className = 2;
+    string methodName = 3;
+    string type = 4;
+    string requestLogMessage = 5;
+    string responseLogMessage = 6;
+    string logTime = 7;
+}
+
+message LogMessage{
+    string type = 1;
+    string logMessage = 2;
+    string logTime = 3;
+}
+
+message LogResponse{
+   string responseMessage = 1;
+   int32  status = 2;
+}

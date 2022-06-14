@@ -1,0 +1,10 @@
+server:
+  port: 8081
+logging:
+  file:
+    path: D://logs/common/local.log
+  level:
+    root: INFO
+  logback:
+    rollingpolicy:
+      clean-history-on-start: true 
