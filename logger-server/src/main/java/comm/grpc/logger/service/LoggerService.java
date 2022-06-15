@@ -3,6 +3,7 @@ package comm.grpc.logger.service;
 import static comm.grpc.logger.stub.LogResponse.newBuilder;
 
 import comm.grpc.logger.stub.LogData;
+import comm.grpc.logger.stub.LogMessage;
 import comm.grpc.logger.stub.LogResponse;
 import comm.grpc.logger.stub.LogResponse.Builder;
 import comm.grpc.logger.stub.LoggerGrpc.LoggerImplBase;
@@ -24,6 +25,27 @@ public class LoggerService extends LoggerImplBase {
 	
 	public void log(LogData request, StreamObserver<LogResponse> response) {
 		writeLogToFile(request, response);
+	}
+
+	public void logMsg(LogMessage request, StreamObserver<LogResponse> response) {
+		writeLogMsgToFile(request, response);
+	}
+	
+	private void writeLogMsgToFile(LogMessage request, StreamObserver<LogResponse> responseObserver) {
+		Builder response = newBuilder();
+		try {
+			log.info(String.valueOf(LoggerBuilder.builder()
+					.requestLogMessage(request.getLogMessage())
+					.type(request.getType()).logTime(request.getLogTime()).build()));
+			response.setResponseMessage(SUCCESS);
+			response.setStatus(SUCCESS_CODE);
+		} catch (Exception ex) {
+			response.setResponseMessage(ERROR + ex.getMessage());
+			response.setStatus(ERROR_CODE);
+		}
+		responseObserver.onNext(response.build());
+		responseObserver.onCompleted();
+		
 	}
 
 	private void writeLogToFile(LogData request, StreamObserver<LogResponse> responseObserver) {

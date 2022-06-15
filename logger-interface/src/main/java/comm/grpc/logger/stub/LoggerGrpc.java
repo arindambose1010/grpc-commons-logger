@@ -59,6 +59,38 @@ public final class LoggerGrpc {
      return getLogMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<comm.grpc.logger.stub.LogMessage,
+      comm.grpc.logger.stub.LogResponse> getLogMsgMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "logMsg",
+      requestType = comm.grpc.logger.stub.LogMessage.class,
+      responseType = comm.grpc.logger.stub.LogResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<comm.grpc.logger.stub.LogMessage,
+      comm.grpc.logger.stub.LogResponse> getLogMsgMethod() {
+    io.grpc.MethodDescriptor<comm.grpc.logger.stub.LogMessage, comm.grpc.logger.stub.LogResponse> getLogMsgMethod;
+    if ((getLogMsgMethod = LoggerGrpc.getLogMsgMethod) == null) {
+      synchronized (LoggerGrpc.class) {
+        if ((getLogMsgMethod = LoggerGrpc.getLogMsgMethod) == null) {
+          LoggerGrpc.getLogMsgMethod = getLogMsgMethod = 
+              io.grpc.MethodDescriptor.<comm.grpc.logger.stub.LogMessage, comm.grpc.logger.stub.LogResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "Logger", "logMsg"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  comm.grpc.logger.stub.LogMessage.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  comm.grpc.logger.stub.LogResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new LoggerMethodDescriptorSupplier("logMsg"))
+                  .build();
+          }
+        }
+     }
+     return getLogMsgMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -93,6 +125,13 @@ public final class LoggerGrpc {
       asyncUnimplementedUnaryCall(getLogMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void logMsg(comm.grpc.logger.stub.LogMessage request,
+        io.grpc.stub.StreamObserver<comm.grpc.logger.stub.LogResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getLogMsgMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -102,6 +141,13 @@ public final class LoggerGrpc {
                 comm.grpc.logger.stub.LogData,
                 comm.grpc.logger.stub.LogResponse>(
                   this, METHODID_LOG)))
+          .addMethod(
+            getLogMsgMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                comm.grpc.logger.stub.LogMessage,
+                comm.grpc.logger.stub.LogResponse>(
+                  this, METHODID_LOG_MSG)))
           .build();
     }
   }
@@ -131,6 +177,14 @@ public final class LoggerGrpc {
       asyncUnaryCall(
           getChannel().newCall(getLogMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void logMsg(comm.grpc.logger.stub.LogMessage request,
+        io.grpc.stub.StreamObserver<comm.grpc.logger.stub.LogResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getLogMsgMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -156,6 +210,13 @@ public final class LoggerGrpc {
     public comm.grpc.logger.stub.LogResponse log(comm.grpc.logger.stub.LogData request) {
       return blockingUnaryCall(
           getChannel(), getLogMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public comm.grpc.logger.stub.LogResponse logMsg(comm.grpc.logger.stub.LogMessage request) {
+      return blockingUnaryCall(
+          getChannel(), getLogMsgMethod(), getCallOptions(), request);
     }
   }
 
@@ -184,9 +245,18 @@ public final class LoggerGrpc {
       return futureUnaryCall(
           getChannel().newCall(getLogMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<comm.grpc.logger.stub.LogResponse> logMsg(
+        comm.grpc.logger.stub.LogMessage request) {
+      return futureUnaryCall(
+          getChannel().newCall(getLogMsgMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_LOG = 0;
+  private static final int METHODID_LOG_MSG = 1;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -207,6 +277,10 @@ public final class LoggerGrpc {
       switch (methodId) {
         case METHODID_LOG:
           serviceImpl.log((comm.grpc.logger.stub.LogData) request,
+              (io.grpc.stub.StreamObserver<comm.grpc.logger.stub.LogResponse>) responseObserver);
+          break;
+        case METHODID_LOG_MSG:
+          serviceImpl.logMsg((comm.grpc.logger.stub.LogMessage) request,
               (io.grpc.stub.StreamObserver<comm.grpc.logger.stub.LogResponse>) responseObserver);
           break;
         default:
@@ -271,6 +345,7 @@ public final class LoggerGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new LoggerFileDescriptorSupplier())
               .addMethod(getLogMethod())
+              .addMethod(getLogMsgMethod())
               .build();
         }
       }

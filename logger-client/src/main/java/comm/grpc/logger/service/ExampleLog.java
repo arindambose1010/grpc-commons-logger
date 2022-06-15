@@ -7,7 +7,7 @@ import comm.grpc.logger.annotaton.Log;
 @Component
 public class ExampleLog {
 
-	@Log
+	@Log(name = "TestApp")
 	public String getEmp(int id) {
 		return "Arindam,Bose";
 	}

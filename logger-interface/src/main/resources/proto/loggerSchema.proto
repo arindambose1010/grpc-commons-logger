@@ -5,6 +5,7 @@ option java_multiple_files = true;
 
 service Logger{
     rpc log(LogData)  returns (LogResponse);
+    rpc logMsg(LogMessage)  returns (LogResponse);
 }
 
 message LogData{
@@ -17,6 +18,11 @@ message LogData{
     string logTime = 7;
 }
 
+message LogMessage{
+    string type = 1;
+    string logMessage = 2;
+    string logTime = 3;
+}
 
 message LogResponse{
    string responseMessage = 1;

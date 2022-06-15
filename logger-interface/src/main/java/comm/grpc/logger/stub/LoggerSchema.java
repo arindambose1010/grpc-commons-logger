@@ -20,6 +20,11 @@ public final class LoggerSchema {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_LogData_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_LogMessage_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_LogMessage_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_LogResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -37,10 +42,13 @@ public final class LoggerSchema {
       "ame\030\001 \001(\t\022\021\n\tclassName\030\002 \001(\t\022\022\n\nmethodNa" +
       "me\030\003 \001(\t\022\014\n\004type\030\004 \001(\t\022\031\n\021requestLogMess" +
       "age\030\005 \001(\t\022\032\n\022responseLogMessage\030\006 \001(\t\022\017\n" +
-      "\007logTime\030\007 \001(\t\"6\n\013LogResponse\022\027\n\017respons" +
-      "eMessage\030\001 \001(\t\022\016\n\006status\030\002 \001(\0052\'\n\006Logger" +
-      "\022\035\n\003log\022\010.LogData\032\014.LogResponseB\031\n\025comm." +
-      "grpc.logger.stubP\001b\006proto3"
+      "\007logTime\030\007 \001(\t\"?\n\nLogMessage\022\014\n\004type\030\001 \001" +
+      "(\t\022\022\n\nlogMessage\030\002 \001(\t\022\017\n\007logTime\030\003 \001(\t\"" +
+      "6\n\013LogResponse\022\027\n\017responseMessage\030\001 \001(\t\022" +
+      "\016\n\006status\030\002 \001(\0052L\n\006Logger\022\035\n\003log\022\010.LogDa" +
+      "ta\032\014.LogResponse\022#\n\006logMsg\022\013.LogMessage\032" +
+      "\014.LogResponseB\031\n\025comm.grpc.logger.stubP\001" +
+      "b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -60,8 +68,14 @@ public final class LoggerSchema {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_LogData_descriptor,
         new java.lang.String[] { "AppName", "ClassName", "MethodName", "Type", "RequestLogMessage", "ResponseLogMessage", "LogTime", });
-    internal_static_LogResponse_descriptor =
+    internal_static_LogMessage_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_LogMessage_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_LogMessage_descriptor,
+        new java.lang.String[] { "Type", "LogMessage", "LogTime", });
+    internal_static_LogResponse_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_LogResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_LogResponse_descriptor,
