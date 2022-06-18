@@ -2,8 +2,6 @@ package comm.grpc.logger.aspect;
 
 import static java.time.LocalDateTime.now;
 
-import java.util.Objects;
-import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -20,9 +18,7 @@ import comm.grpc.logger.annotaton.Log;
 import comm.grpc.logger.annotaton.MESSAGE_TYPE;
 import comm.grpc.logger.entity.LoggerBuilder;
 import comm.grpc.logger.service.LogGenerater;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @Aspect
 @Component
 @EnableAspectJAutoProxy

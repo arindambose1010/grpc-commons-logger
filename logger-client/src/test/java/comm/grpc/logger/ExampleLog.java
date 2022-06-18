@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 import comm.grpc.logger.annotaton.Log;
 import comm.grpc.logger.service.LogMessageGenerater;
+import comm.grpc.logger.service.LogMessageGeneraterImpl;
 
 @Component
 public class ExampleLog {

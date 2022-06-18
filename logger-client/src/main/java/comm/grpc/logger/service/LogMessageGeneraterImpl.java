@@ -16,7 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 public class LogMessageGeneraterImpl implements LogMessageGenerater{
 	
 	@Autowired
-	GenarateLoggerBlockingStub stub;
+	GenarateStub stub;
 	
 	 public void generateLogs(String... logInfoStr) {
 		 try{
