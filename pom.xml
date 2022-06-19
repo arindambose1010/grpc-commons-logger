@@ -7,9 +7,9 @@
 		<version>2.7.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.commons.grpc</groupId>
-	<artifactId>logger</artifactId>
-	<version>0.0.1</version>
+	<groupId>comm.logger</groupId>
+	<artifactId>main</artifactId>
+	<version>1.0.0</version>
 	<modelVersion>4.0.0</modelVersion>
 	<name>Logger</name>
 	<packaging>pom</packaging>

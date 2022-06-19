@@ -3,7 +3,6 @@ package comm.grpc.logger.service;
 import static io.grpc.ManagedChannelBuilder.forAddress;
 
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import com.google.common.base.Optional;
 

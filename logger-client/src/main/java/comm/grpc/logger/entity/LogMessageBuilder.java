@@ -5,8 +5,10 @@ import java.io.Serializable;
 import com.google.gson.GsonBuilder;
 
 import lombok.Builder;
+import lombok.Getter;
 
 @Builder
+@Getter
 public class LogMessageBuilder implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private String type;

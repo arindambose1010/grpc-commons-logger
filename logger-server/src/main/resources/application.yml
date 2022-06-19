@@ -2,7 +2,7 @@ server:
   port: 9090
 logging:
   file:
-    path: D://logs/common/audit.log
+    path: D://logs/common/grpc
   level:
     root: INFO
   logback:
